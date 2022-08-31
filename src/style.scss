@@ -1,0 +1,240 @@
+@font-face {
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 700;
+    src: local(""),
+        url("@/assets/fonts/montserrat-v25-latin_cyrillic-700.woff2") format("woff2"),
+        url("@/assets/fonts/montserrat-v25-latin_cyrillic-700.woff") format("woff");
+}
+@font-face {
+    font-family: "Vela Sans";
+    font-style: normal;
+    font-weight: 400;
+    src: local(""), url("@/assets/fonts/VelaSans-Regular.woff2") format("woff2"),
+        url("@/assets/fonts/VelaSans-Regular.woff") format("woff");
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html,
+input::placeholder,
+select {
+    font-family: Vela Sans;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: 0em;
+    color: #16191d;
+}
+
+h2 {
+    font-family: Montserrat;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 32px;
+    letter-spacing: 0em;
+}
+
+h3 {
+    font-family: Montserrat;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: 0em;
+}
+
+input::placeholder {
+    color: #c4c4c4;
+}
+
+.wrapper {
+    margin: 100px 150px;
+}
+
+.btn {
+    cursor: pointer;
+    border: none;
+    background-color: inherit;
+}
+
+// header
+.header {
+    padding-left: 40px;
+
+    &__search-pic {
+        margin-bottom: -4px;
+    }
+
+    &__input {
+        margin-left: 18px;
+        border: none;
+        width: 210px;
+        height: 22px;
+    }
+
+    &__select {
+        height: 22px;
+        border: none;
+        text-align: right;
+        background-color: inherit;
+    }
+}
+
+.header-line {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 40px;
+    margin-bottom: 18px;
+}
+
+//todos
+.change-status-container {
+    display: flex;
+    align-items: center;
+}
+
+.todos-list {
+
+    &__line,
+    &__header {
+        display: flex;
+        align-items: center;
+    }
+
+    &__line {
+        height: 59px;
+        border-bottom: 1px solid #eeebe9;
+    }
+
+    &__line:nth-child(2) {
+        border-top: 1px solid #eeebe9;
+    }
+
+    &__header {
+        margin-bottom: 18px;
+
+        .todos-list__name::before,
+        .todos-list__status::before,
+        .todos-list__date::before {
+            content: "";
+            border: 1px solid #c4c4c4;
+            display: inline-block;
+            height: 32px;
+            position: absolute;
+            margin: 0 0 0 -20px;
+        }
+    }
+
+    &__change-status,
+    &__name,
+    &__status,
+    &__date {
+        height: 32px;
+        display: flex;
+        align-items: center;
+    }
+
+    &__change-status {
+        width: 100px;
+        justify-content: center;
+    }
+
+    &__change-status-pic {
+        border-radius: 50px;
+        box-shadow: 0px 4px 4px 0px #134ec126;
+    }
+
+    &__name {
+        flex-grow: 1;
+    }
+
+    &__status {
+        width: 150px;
+
+        &--complete {
+            color: #134ec1;
+        }
+
+        &--inwork {
+            color: #f89b11;
+        }
+    }
+
+    &__date {
+        width: 130px;
+    }
+}
+
+// modal
+.fixed-overlay {
+    position: fixed;
+    overflow: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    backdrop-filter: blur(2px);
+}
+
+.modal {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -200px;
+    margin-top: -140px;
+    margin-bottom: 30px;
+
+    &__container {
+        background-color: #ffffff;
+        width: 400px;
+        height: 280px;
+        border: 1px solid #dde2e4;
+        border-radius: 6px;
+        box-shadow: 0px 25px 50px -12px rgba(0, 0, 0, 0.25);
+
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        align-content: flex-start;
+        padding: 40px;
+    }
+
+    &__title,
+    &__input {
+        margin-bottom: 30px;
+    }
+
+    &__label,
+    &__input {
+        width: 100%;
+    }
+
+    &__label {
+        margin-bottom: 5px;
+    }
+
+    &__input {
+        border: 1px solid #dde2e4;
+        border-radius: 8px;
+        width: 319px;
+        height: 40px;
+        padding: 11px 16px;
+    }
+
+    &__add-todo {
+        padding: 12px 40px;
+        background: #f0f5ff;
+        border-radius: 8px;
+        color: #314b99;
+        margin: 0 auto;
+    }
+
+    &__add-todo:disabled {
+        background: #eeeeee;
+        color: #bdbdbd;
+        cursor: default;
+    }
+}
